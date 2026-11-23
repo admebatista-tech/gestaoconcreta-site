@@ -1,0 +1,13 @@
+# BEGIN GestaoConcreta (gestãoconcreta.com) — não afeta o farol.pro
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.xn--gestoconcreta-zeb\.com$ [NC]
+RewriteRule ^ https://xn--gestoconcreta-zeb.com%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTP_HOST} ^xn--gestoconcreta-zeb\.com$ [NC]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://xn--gestoconcreta-zeb.com%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTP_HOST} ^xn--gestoconcreta-zeb\.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/gestaoconcreta-site/
+RewriteRule ^(.*)$ /gestaoconcreta-site/$1 [L]
+</IfModule>
+# END GestaoConcreta

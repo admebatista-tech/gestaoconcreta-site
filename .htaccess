@@ -1,0 +1,16 @@
+# Site Gestão Concreta (estático)
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+Options -Indexes
+RedirectMatch 404 ^/gestaoconcreta-site/(\.git|deploy)(/|$)
+RedirectMatch 404 ^/(\.git|deploy)(/|$)
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|woff2?|ttf|png|jpg|svg|ico)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
